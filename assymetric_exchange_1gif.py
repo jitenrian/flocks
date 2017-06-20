@@ -143,12 +143,14 @@ def exchange(J, A, chi, eta, dt, T, N, L, IR):
             for x in dr:
                 a.writerow(x)
         fp.close()
+        
         G = '%04d' %g 
-        plt.figure()    
+        fig = plt.figure()   
+        fig.suptitle('t=' + str(g*dt), fontsize=10, fontweight='bold')
         plt.plot(rxf,ryf,'.')
         plt.savefig('image'+str(G)+'.png')
         plt.close()
-    
+        
     os.chdir(p_path)
 
 if __name__=="__main__":
